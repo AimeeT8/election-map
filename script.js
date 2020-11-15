@@ -18,8 +18,8 @@ var createPolitician = function(name, partyColor) {
       }
     }; 
 
-
      
+
    return politician;
    };
    
@@ -97,7 +97,7 @@ var winnersName = body.children[2].children[1];
   
 
   stateName.innerText = theStates[state].nameFull;
-abbrev.innerText = "(" + theStates[state].nameAbbrev +")";
+abbrev.innerText = "(" +theStates[state].nameAbbrev + ")";
   
 candidate1Name.innerText = darlene.name;
 candidate2Name.innerText = kassidy.name;
@@ -105,9 +105,9 @@ candidate2Name.innerText = kassidy.name;
 candidate1Results.innerText = darlene.electionResults[state];
 candidate2Results.innerText = kassidy.electionResults[state];
   
-if(theStates[state].winner !== null){
+if (theStates[state].winner === null){
   winnersName.innerText = "DRAW!";
-}else{
+} else {
   winnersName.innerText = theStates[state].winner.name;
    }
 }
@@ -121,23 +121,26 @@ darlene.tallyUpTotalVotes();
    console.log(kassidy.totalVotes);
 
 
-var winner = function(){
+
+
+   var winner = function(){
    
-   if (darlene.totalVotes > kassidy.totalVotes){
-     winner = darlene.name;
-   } else if (darlene.totalVotes < kassidy.totalVotes){
-     winner = kassidy.name;
-   }else{
-     winner = "DRAW!"
-   
-   console.log("AND THE WINNER IS..." + winner + "!!!")
-   }
-}
-   
+    if (darlene.totalVotes > kassidy.totalVotes){
+      winner = darlene.name;
+    } else if (darlene.totalVotes < kassidy.totalVotes){
+      winner = kassidy.name;
+    }else{
+      winner = "DRAW!"
+    
+    console.log("AND THE WINNER IS..." + winner + "!!!")
+    }
+ }
+ 
  winner();
 
+  
 
-var countryInfoTable = document.getElementById('countryResults');
+   var countryInfoTable = document.getElementById('countryResults');
   var row = countryInfoTable.children[0].children[0];
 
   row.children[0].innerText = darlene.name;
@@ -145,6 +148,14 @@ var countryInfoTable = document.getElementById('countryResults');
   row.children[2].innerText = kassidy.name;
   row.children[3].innerText = kassidy.totalVotes;
   row.children[5].innerText = winner; 
+
+
+
+
+
+
+   
+ 
 
 
   
